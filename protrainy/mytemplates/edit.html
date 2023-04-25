@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>edited</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+</head>
+<body>
+
+<form method="POST" class="get-form" action="/protrainyapp/update?id={{protrainys.id}}">
+    <input type="hidden" name="id" value="{{protrainys.id}}">
+
+    {% csrf_token %}
+
+    <div class="container">
+        <br>
+        <div class="form-group row">
+            <label class="col-sm-1 col-form-label"></label>
+            <div class="col-sm-4">
+                <h3>Update Details</h3>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">name:</label>
+            <div class="col-sm-4">
+                <input type="text" name="name" id="id_name" required maxlength="100"
+                       value="{{ protrainys.name }}"/>
+            </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">user_name:</label>
+            <div class="col-sm-4">
+                <input type="text" name="user_name" id="id_user_name" required maxlength="100"
+                       value="{{ protrainys.user_name }}"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">user_Branch:</label>
+            <div class="col-sm-4">
+                <input type="text" name=" user_branch" id="id_user_branch" required maxlength="100"
+                       value="{{ protrainys.user_branch }}"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">user_Password:</label>
+            <div class="col-sm-4">
+                <input type="number" name="user_password" id="id_user_password" required maxlength="10"
+                       value="{{ protrainys.user_password }}"/>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-1 col-form-label"></label>
+            <div class="col-sm-4">
+                <button type="submit" class="btn btn-success">Update</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<center><a href="/protrainyapp/read" class="btn btn-primary"><h2>All Data</h2></a></center>
+
+</body>
+</html>
